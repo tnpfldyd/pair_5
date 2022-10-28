@@ -17,7 +17,8 @@
 
 {% if request.user == article.user %}
 <p>
-  <a href="{% url 'reviews:update' article.pk %}">수정하기</a>
+  <a class="btn btn-outline-primary" href="{% url 'reviews:update' article.pk %}">수정하기</a>
+  <a class="btn btn-outline-danger" href="{% url 'reviews:delete' article.pk %}">삭제하기</a>
 </p>
 {% endif %}
 <hr>
@@ -40,7 +41,7 @@
   <p> {{ comment.user.username }} | {{ comment.content }}</p>
   <hr>    
 {% empty %}
-  <p>댓글이 없어요 ㅠ_ㅠ</p>
+  <p>첫 댓글을 남겨보세요 :)</p>
 {% endfor %}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

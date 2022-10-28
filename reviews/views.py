@@ -6,10 +6,12 @@ from django.http import HttpResponseForbidden, HttpResponse
 from django.contrib import messages
 import os
 from django.http import JsonResponse
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
-    return render(request, "reviews/index.html", {"contents": Article.objects.all()})
+    temp = Article.objects.annotate(Count("comment"))
+    return render(request, "reviews/index.html", {"contents": temp})
 
 
 @login_required

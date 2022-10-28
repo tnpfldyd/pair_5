@@ -2,6 +2,6 @@
 {% block content %}
 
 {% for info in infos %}
-<a href="{% url 'accounts:detail' info.pk%}"><p> {{info}} </p></a>
+<a class="p-2" href="{% url 'accounts:detail' info.pk%}"><p> {{info}} </p></a>
 {% endfor %}
 {% endblock %}

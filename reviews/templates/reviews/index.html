@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load django_bootstrap5 %}
-<div class="text-end">
-  <a href="{% url 'reviews:create' %}" class="btn btn-primary">글 쓰기</a>
-</div>
 <div class="row">
   {% for content in contents %}
     <div class="card col-2 m-3 px-0" style="height: 300px;">
@@ -15,6 +12,7 @@
         {% endif %}
         <div class="card-body p-0 text-center">
           <h5 class="card-title">{{ content.title }}</h5>
+          <p>댓글수:{{content.comment__count}}</p>
         </div>
       </a>
     </div>
